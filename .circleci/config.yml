@@ -1,15 +1,24 @@
 version: 2.1
 orbs:
   python: circleci/python@2.0.3
-workflows:
-    example-workflow:
-      jobs:
-        - run:
-          name: run tests
+
+jobs:
+  build_and_test: # this can be any name you choose
+    executor: python/default
+    steps:
+      - checkout
+      - python/install-packages:
+          pkg-manager: pip
+      - run:
+          name: Run tests
           command: |
             . venv/bin/activate
             mkdir test-results
             pytest --junitxml=test-results/junit.xml
-        - store_test_results:
+      - store_test_results:
           path: test-results
 
+workflows:
+  test_my_app:
+    jobs:
+      - build_and_test
