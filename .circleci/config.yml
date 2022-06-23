@@ -13,9 +13,9 @@ jobs:
           name: Run tests
           command: |
             mkdir test-results
-            pytest --junitxml=test-results/junit.xml
+            pytest --junitxml=test-results/pytest/junit.xml
       - store_test_results:
-          path: test-results
+          path: test-results/pytest
 
 workflows:
   test_my_app:
