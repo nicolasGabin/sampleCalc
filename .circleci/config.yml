@@ -4,6 +4,12 @@ orbs:
 workflows:
     example-workflow:
       jobs:
-        - python/test
+        - run:
+          name: run tests
+          command: |
+            . venv/bin/activate
+            mkdir test-results
+            pytest --junitxml=test-results/junit.xml
         - store_test_results:
           path: test-results
+
