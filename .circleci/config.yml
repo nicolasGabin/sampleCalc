@@ -1,3 +1,7 @@
 version: 2.1
 orbs:
-  pytest: thekevjames/pytest@0.0.60
+  python: circleci/python@2.0.3
+workflows:
+    example-workflow:
+      jobs:
+        - python/test
