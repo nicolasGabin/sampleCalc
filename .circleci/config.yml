@@ -15,7 +15,7 @@ jobs:
             mkdir test-results
             pytest --junitxml=test-results/pytest/junit.xml
       - store_test_results:
-          path: test-results/pytest
+          path: test-results/
 
 workflows:
   test_my_app:
