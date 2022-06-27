@@ -2,7 +2,7 @@ from hypothesis import given
 import hypothesis.strategies as st
 from .. import suma
 
-@given(intA = st.integers(), intB = st.integers())
+@given(st.integers(), st.integers())
 def test_hypo_suma(intA, intB):
     assert (suma.sumar(intA, intB) == (intA + intB))
 
