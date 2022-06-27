@@ -16,7 +16,7 @@ jobs:
             coverage run -m pytest --junitxml=test-results/pytest/junit.xml
             coverage xml -o test-results/coverage/results.xml
       - store_test_results:
-          path: test-results/
+          path: test-results
 
 workflows:
   test_my_app:
